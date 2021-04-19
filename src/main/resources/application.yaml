@@ -1,0 +1,30 @@
+
+logging.level.org.springframework.web: DEBUG
+
+spring:
+  application:
+    name: k8s-aware
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: polling
+        period: 5000
+        strategy: restart_context
+
+management:
+  health:
+    livenessState.enabled: true
+    readinessState.enabled: true
+  endpoint:
+    restart.enabled: true
+    health.probes.enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: restart, health
+
+server:
+  shutdown: graceful
+
+msg: no external configuration has been loaded

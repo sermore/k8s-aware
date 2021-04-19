@@ -1,4 +1,0 @@
-#      config:
-#        sources:
-#          - name: other
-#          - name: ${spring.application.name}

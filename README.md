@@ -22,11 +22,12 @@ A spring-boot exercise to identify the minimal set of features needed to run an 
 * access the application using `minikube service k8s-aware`
 * check that everything is ok querying container's details `kubectl describe pod -lapp=k8s-aware`
 ### Apply the faulty configuration to simulate malfunctions  
-* create the configmap named k8b-aware `create configmap k8s-aware -o yaml --from-file=src/test/resources/faulty-application.yaml`
+* create the configmap named k8b-aware `kubectl create configmap k8s-aware -o yaml --from-file=src/test/resources/faulty-application.yaml`
 * observe how the application reloads with the new behaviour `kubectl logs -lapp=k8s-aware`
 * observe details of the container `kubectl get pod -lapp=k8s-aware -w`  `kubectl describe pod -lapp=k8s-aware`
-### Clean up  
+### Clean up 
 * dispose deployments `./mvnw k8s:undeploy`
+* delete configmap `kubectl delete configmap k8s-aware`
 * stop minikube `minikube stop`
 
 

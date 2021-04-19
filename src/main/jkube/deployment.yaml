@@ -3,19 +3,8 @@ spec:
   template:
     spec:
       serviceAccountName: config-reader
-#      volumes:
-#        - name: config
-#          configMap:
-#            name: ${project.artifactId}
-#            items:
-#              - key: application.yaml
-#                path: application.yaml
       containers:
-        -
-#          volumeMounts:
-#            - name: config
-#              mountPath: /workspace/config
-          livenessProbe:
+        - livenessProbe:
             failureThreshold: 2
             httpGet:
               path: /actuator/health/liveness

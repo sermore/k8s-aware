@@ -1,6 +1,8 @@
 # A spring-boot application kubernetes-aware
 
 A spring-boot exercise to identify the minimal set of features needed to run an application inside a kubernetes cluster.
+* health indicators: liveness and readiness
+* application.yaml is loaded from ConfigMap, spring-cloud features configmap monitoring and application reload on change
 
 ### Prerequisites
 * java jdk-11
